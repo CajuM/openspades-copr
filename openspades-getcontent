@@ -1,0 +1,17 @@
+#!/bin/bash
+
+RES_FONT=/usr/share/openspades/Resources/font-unifont.pak
+RES_NONFREE_PAK=/usr/share/openspades/Resources/pak000-Nonfree.pak
+
+PAK_LOCATION=https://github.com/yvt/openspades-paks/releases/download/r33/OpenSpadesDevPackage-r33.zip
+
+TMP_DIR=$(mktemp -d)
+cd $TMP_DIR
+wget -O nonfree.zip $PAK_LOCATION
+unzip nonfree.zip
+
+install -m 0664 Nonfree/pak000-Nonfree.pak $RES_NONFREE_PAK
+install -m 0664 OfficialMods/font-unifont.pak $RES_FONT
+
+cd ..
+rm -rf $TMP_DIR

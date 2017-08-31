@@ -1,0 +1,32 @@
+diff -ru openspades-0.1.1c-orig/CMakeLists.txt openspades-0.1.1c/CMakeLists.txt
+--- openspades-0.1.1c-orig/CMakeLists.txt	2017-03-04 12:08:05.000000000 +0200
++++ openspades-0.1.1c/CMakeLists.txt	2017-11-01 22:40:52.534117577 +0200
+@@ -226,13 +226,11 @@
+ 	if(OPENSPADES_RESOURCES)
+ 		# install asset paks (including non-GPL one)
+ 		install(FILES
+-			${CMAKE_BINARY_DIR}/Resources/pak000-Nonfree.pak
+ 			${CMAKE_BINARY_DIR}/Resources/pak002-Base.pak
+ 			${CMAKE_BINARY_DIR}/Resources/pak005-Models.pak
+ 			${CMAKE_BINARY_DIR}/Resources/pak010-BaseSkin.pak
+ 			${CMAKE_BINARY_DIR}/Resources/pak050-Locales.pak
+ 			${CMAKE_BINARY_DIR}/Resources/pak999-References.pak
+-			${CMAKE_BINARY_DIR}/Resources/font-unifont.pak
+ 			DESTINATION ${OPENSPADES_INSTALL_RESOURCES})
+ 	endif(OPENSPADES_RESOURCES)
+ 
+diff -ru openspades-0.1.1c-orig/Resources/CMakeLists.txt openspades-0.1.1c/Resources/CMakeLists.txt
+--- openspades-0.1.1c-orig/Resources/CMakeLists.txt	2017-03-04 12:08:05.000000000 +0200
++++ openspades-0.1.1c/Resources/CMakeLists.txt	2017-11-01 22:40:59.852228826 +0200
+@@ -4,11 +4,6 @@
+ 	if (WIN32)
+ 		# No automatic downloading for Windows (for now)
+ 	elseif (UNIX)
+-		add_custom_target(OpenSpades_Resources_DevPaks ALL COMMENT "Downloading non-GPL assets")
+-		add_custom_command(
+-			TARGET OpenSpades_Resources_DevPaks
+-			COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/downloadpak.sh
+-			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ 	endif()
+ 
+ 	# TODO: subgroups for script files
