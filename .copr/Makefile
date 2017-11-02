@@ -4,4 +4,4 @@ srpm:
 	cp * /builddir/build/SOURCES/
 	spectool -R -g openspades.spec
 	rpmbuild -bs openspades.spec
-	mv ~/rpmbuild/SRPMS/*.rpm $(outdir)
+	mv /builddir/build/SRPMS/*.rpm $(outdir)
