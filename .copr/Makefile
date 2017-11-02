@@ -1,5 +1,6 @@
 srpm:
 	dnf install -y rpmdevtools
-	spectool -R -g $(spec)
-	rpmbuild -bs $(spec)
+	cd $(spec)
+	spectool -R -g openspades.spec
+	rpmbuild -bs openspades.spec
 	mv ~/rpmbuild/SRPMS/* $(outdir)
